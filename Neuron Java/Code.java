@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// Test of a Basic Neuron
+
 public class Code {
     public static void main(String[] args) {
 
