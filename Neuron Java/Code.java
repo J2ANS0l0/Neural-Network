@@ -6,17 +6,16 @@ import java.util.Arrays;
 public class Code {
     public static void main(String[] args) {
 
-        // Possibilities 2**2 | X values
-        ArrayList<ArrayList<Integer>> inputs = new ArrayList<>(Arrays.asList(
-        new ArrayList<>(Arrays.asList(0,0)),
-        new ArrayList<>(Arrays.asList(0,1)),
-        new ArrayList<>(Arrays.asList(1,0)),
-        new ArrayList<>(Arrays.asList(1,1))
-        ));
-
         // Expected activation
-        ArrayList<Integer> Expected = new ArrayList<>(Arrays.asList(1,0,0,0));
+        ArrayList<Integer> Expected = new ArrayList<>(Arrays.asList(0,1,0,0));
         ArrayList<Integer> Results = new ArrayList<>();
+
+        // Possibilities 2**Expected Size | X values
+        double exponent = Math.log(Expected.size()) / Math.log(2);
+        ArrayList<ArrayList<Double>> inputs = new ArrayList<>();
+        for (int i = 0; i < Expected.size(); i++){
+            inputs.add(binary_combinations(i, (int) exponent));
+        }
 
         Perceptron Neuron = new Perceptron(0, 0, (double) 5);
         int Errors = 0;
@@ -42,6 +41,19 @@ public class Code {
                 //if(Errors!=0){break;}
             }
         }
-
     }
+    
+    public static ArrayList<Double> binary_combinations(int n, int n_characters) {
+        
+        ArrayList<Double> number = new ArrayList<>();
+        String binary = String.format("%" + n_characters + "s", Integer.toBinaryString(n)).replace(' ', '0');
+
+        for (int j = 0; j < binary.length(); j++) { // Recorremos la longitud de binary
+            char digit = binary.charAt(j);
+            number.add((double) Character.getNumericValue(digit));
+        }
+
+        return number;
+    }
+
 }
