@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// Test of a Complete Neuron
+
 public class Complete_Neuron {
 
     Perceptron A = new Perceptron(0, 0, 5);
