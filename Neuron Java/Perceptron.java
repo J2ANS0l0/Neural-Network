@@ -36,7 +36,7 @@ public class Perceptron {
         }
 
         sigmoid = 1 / (1 + Math.pow(e, -(summation - this.Bias)));
-
+        
         if(sigmoid >= 0.5){result = 1;}
         else {result = 0;}
 
