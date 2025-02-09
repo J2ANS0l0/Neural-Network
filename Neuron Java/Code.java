@@ -7,8 +7,8 @@ public class Code {
     public static void main(String[] args) {
 
         // Expected activation
-        ArrayList<Integer> Expected = new ArrayList<>(Arrays.asList(0,1,0,0));
-        ArrayList<Integer> Results = new ArrayList<>();
+        ArrayList<Double> Expected = new ArrayList<>(Arrays.asList(0.0,1.0,1.0,0.0));
+        ArrayList<Double> Results = new ArrayList<>();
 
         // Possibilities 2**Expected Size
         double exponent = Math.log(Expected.size()) / Math.log(2);
@@ -18,7 +18,7 @@ public class Code {
         }
 
         Perceptron Neuron = new Perceptron(0, 0, (double) 5);
-        int Errors = 0;
+        double Errors = 0;
         int counter = 0;
 
         while (!Expected.equals(Results)) {
@@ -33,10 +33,10 @@ public class Code {
                 // OutputValues = Neuron.Result(InputValues)
                 Results.add(Neuron.Result(inputs.get(i)));
                 Errors = Expected.get(i) - Results.get(i);
-                Neuron.BaskPropagation(Errors);
+                Neuron.BackPropagation(Errors);
 
                 System.err.print(Neuron);
-                System.err.print("  Expected: " + Integer.toString(Expected.get(i)) + " Result: " + Integer.toString(Results.get(i)) + "\n");
+                System.err.print("  Expected: " + Double.toString(Expected.get(i)) + " Result: " + Double.toString(Results.get(i)) + "\n");
 
                 //if(Errors!=0){break;}
             }
