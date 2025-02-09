@@ -10,7 +10,7 @@ public class Code {
         ArrayList<Integer> Expected = new ArrayList<>(Arrays.asList(0,1,0,0));
         ArrayList<Integer> Results = new ArrayList<>();
 
-        // Possibilities 2**Expected Size | X values
+        // Possibilities 2**Expected Size
         double exponent = Math.log(Expected.size()) / Math.log(2);
         ArrayList<ArrayList<Double>> inputs = new ArrayList<>();
         for (int i = 0; i < Expected.size(); i++){
