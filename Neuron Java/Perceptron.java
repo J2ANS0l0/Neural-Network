@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Perceptron {
     
-    private ArrayList<Integer> Inputs = new ArrayList<>();
+    private ArrayList<Double> Inputs = new ArrayList<>();
     private ArrayList<Double> Weights = new ArrayList<>();
     private double Bias = 0;
     private double Learning_Rate = 0;
@@ -16,13 +16,13 @@ public class Perceptron {
         this.Learning_Rate = learning_rate;
     }
 
-    public int Result(ArrayList<Integer> input){
+    public double Result(ArrayList<Double> input){
 
-        int result = 0;
+        double result = 0;
         double e = (double) Math.E;
         double sigmoid = 0.0;
         double summation = (double) 0.0;
-        this.Inputs = new ArrayList<Integer>(input);
+        this.Inputs = new ArrayList<Double>(input);
 
         if(!Activate){
             for(int i=0; i<this.Inputs.size(); i++){
@@ -43,7 +43,7 @@ public class Perceptron {
         return result;
     }
 
-    public void BaskPropagation(int errors){
+    public void BackPropagation(double errors){
         this.Bias = this.Bias - errors*this.Learning_Rate;
         for(int k=0; k<this.Weights.size(); k++){
             this.Weights.set(k, this.Weights.get(k)+errors*this.Learning_Rate*this.Inputs.get(k));
